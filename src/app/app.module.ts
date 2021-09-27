@@ -16,7 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { XhrInterceptor } from './interceptor/XhrInterceptor';
-import { BasicAuthInterceptorInterceptor } from './basic-auth-interceptor.interceptor';
+import { BasicAuthInterceptorInterceptor } from './interceptor/basic-auth-interceptor.interceptor';
 
 
 @NgModule({
