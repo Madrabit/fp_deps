@@ -1,0 +1,22 @@
+.dep {
+  padding: 20px;
+}
+
+.columns {
+  width: 1000px;
+  column-count: 2;
+}
+
+label {
+  width: 50%;
+  display: inline-block;
+}
+
+.lolMarge {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+form {
+  padding-top: 10px;
+}

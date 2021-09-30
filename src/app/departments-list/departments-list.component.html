@@ -1,0 +1,31 @@
+<div class="dep">
+  <div *ngFor="let types of depTypes; let i = index; " [attr.data-index]=i>
+    <mat-checkbox color="warn" type="checkbox"
+                  [(ngModel)]="types.checked"
+                  (change)="changeOrgType($event, i)"
+    >
+      {{types.name}}
+    </mat-checkbox>
+  </div>
+  <mat-divider style="margin-top: 10px;"></mat-divider>
+  <div class="columns" style="margin-top: 20px; margin-bottom: 30px">
+    <div *ngFor="let dep of departments | orgTypeFilter:depTypes">
+      <mat-checkbox color="primary" type="checkbox" [(ngModel)]="dep.checked" (change)="depsToString()">
+        {{dep.depNumber}} {{dep.depName}}
+      </mat-checkbox>
+    </div>
+  </div>
+  <div class="lolMarge">Номера выбранных отделов: <span style="font-weight: bold">{{result}}</span></div>
+  <div class="lolMarge">Общая численность: <span style="font-weight: bold">{{sumOfChecked()}}</span></div>
+  <button class="lolMarge" mat-raised-button color="accent" (click)="downloadEmpsFile()">Выгрузить</button>
+  <mat-divider style="margin-top: 10px; margin-bottom: 10px;"></mat-divider>
+  <form [formGroup]="emailForm" (submit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="do@ibdarb.ru" [formControl]="emailInput" required>
+      <mat-error *ngIf="emailInput.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" style="margin-left: 10px">Отправить</button>
+  </form>
+
+</div>

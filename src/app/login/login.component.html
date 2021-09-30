@@ -1,0 +1,16 @@
+<div style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 64px - 12px)" class="container">
+    <form style="display: flex; flex-direction: column" name="form-signin" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" class="form-control input-text-custom" id="username" name="username" [(ngModel)]="user.username" #username="ngModel" required />
+        <div *ngIf="f.submitted && !username.valid" class="help-block">Неверное имя пользователя</div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <label for="password">Пароль</label>
+        <input type="password" class="form-control input-text-custom" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" required />
+        <div *ngIf="f.submitted && !password.valid" class="help-block">Неверный пароль</div>
+      </div>
+      <button mat-raised-button color="primary" style="margin-top: 20px" type="submit">Войти</button>
+    </form>
+</div>
