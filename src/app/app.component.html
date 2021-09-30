@@ -1,3 +1,10 @@
 <!--<app-departments-list></app-departments-list>-->
-<button (click)="logOut()"> LogOut</button>
+<p>
+  <mat-toolbar style="justify-content: space-between;">
+    <span >Выгрузка данных для рассылки</span>
+    <button mat-icon-button (click)="logOut()" style="margin-right: 20px;">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
 <router-outlet></router-outlet>

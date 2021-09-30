@@ -13,10 +13,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
+import {MatDividerModule} from '@angular/material/divider';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { XhrInterceptor } from './interceptor/XhrInterceptor';
-import { BasicAuthInterceptorInterceptor } from './interceptor/basic-auth-interceptor.interceptor';
+import { XhrInterceptor } from './shared/interceptor/XhrInterceptor';
+import { BasicAuthInterceptorInterceptor } from './shared/interceptor/basic-auth-interceptor.interceptor';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { BasicAuthInterceptorInterceptor } from './interceptor/basic-auth-interc
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDividerModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptorInterceptor, multi: true }],
   bootstrap: [AppComponent]
